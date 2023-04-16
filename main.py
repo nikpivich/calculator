@@ -1,5 +1,5 @@
 from tkinter import *
-
+from math import sqrt
 
 class Main(Frame):
     def __init__(self, root):
@@ -16,7 +16,8 @@ class Main(Frame):
             "1", "2", "3", "/",
             "4", "5", "6", "+",
             "7", "8", "9", "-",
-            "(", "0", ")", "X^2"
+            "(", "0", ")", "X^2",
+            "radical","","",""
         ]
 
         x = 10
@@ -42,6 +43,8 @@ class Main(Frame):
             self.formula = str((eval(self.formula))**2)
         elif operation == "=":
             self.formula = str(eval(self.formula))
+        elif operation == 'radical':
+            self.formula = str(sqrt(eval(self.formula)))
         else:
             if self.formula == "0":
                 self.formula = ""
@@ -57,7 +60,7 @@ class Main(Frame):
 if __name__ == '__main__':
     root = Tk()
     root["bg"] = "#000"
-    root.geometry("485x550+200+200")
+    root.geometry("485x650+200+200")
     root.title("Калькулятор")
     root.resizable(False, False)
     app = Main(root)
